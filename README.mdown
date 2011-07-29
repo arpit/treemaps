@@ -11,22 +11,49 @@ Custom renderers can be used to draw the rectangles by extending the Treemap cla
 
 <code>
 
-	var tm:TreeMap = new TreeMap();
-	tm.setSize(stage.stageWidth, stage.stageHeight);
+	package
+	{
+		import com.arpitonline.treemap.TreeMap;
 
-	var dp:Array = [];
-	for(var i:int = 0; i < 5; i++){
-		var i1:MapItem = new MapItem("Item_"+i,MathUtil.randRange(1,2) );
-		dp.push(i1);
+		import flash.display.Sprite;
+		import flash.events.Event;
 
+		public class SampleTreemapProject extends Sprite
+		{
+
+			private var tm:TreeMap = new TreeMap();
+
+			public function SampleTreemapProject()
+			{
+				stage.scaleMode = "noScale";
+				stage.align = "TL";
+
+
+				tm.setSize(stage.stageWidth, stage.stageHeight);
+
+				var dp:Array = [];
+				for(var i:int = 0; i < 5; i++){
+					var i1:MapItem = new MapItem("Item_"+i, 4 );
+					dp.push(i1);
+
+				}
+
+				tm.dataProvider = dp;
+				addChild(tm);
+
+				stage.addEventListener(Event.RESIZE, onStageResize);
+
+			}
+
+			private function onStageResize(event:Event):void{
+				tm.setSize(stage.stageWidth, stage.stageHeight);
+				tm.layout();
+			}
+		}
 	}
 
-	tm.dataProvider = dp;
-	addChild(tm);
+	import com.arpitonline.treemap.ITreeMapData;
 
-</code>
-<code>	
-	
 	class MapItem implements ITreeMapData{
 
 		private var _label:String;
@@ -40,5 +67,6 @@ Custom renderers can be used to draw the rectangles by extending the Treemap cla
 			return _weight;	
 		}
 	}
+	
 			
 </code>
