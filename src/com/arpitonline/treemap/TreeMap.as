@@ -50,11 +50,17 @@ package com.arpitonline.treemap{
 		public function set dataProvider(dp:Array):void{
 			_dataProvider = dp;
 			_dataProvider.sortOn("weight",Array.DESCENDING|Array.NUMERIC);
+			layout();
+		}
+		
+		
+		public function layout():void{
+			cursor=0;
+			removeAllChildren();
 			processValues(this._mapWidth, this._mapHeight);
 			definingRect = new Rectangle(0,0, _mapWidth,_mapHeight);
 			getLayoutManager(definingRect)
 		}
-		
 		
 		private var _renderer:Class = DefaultTreeMapRenderer;
 		public function set renderer(r:Class):void{
