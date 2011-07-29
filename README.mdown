@@ -1,0 +1,44 @@
+***README***
+
+An open source ActionScript 3 library for generating Squarified Treemaps.
+
+**Usage:**
+
+The example below uses a MapItem class that implements the ITreeMapData interface. 
+The weight property on that interface is used to generate the relative size of the individual rectangles
+
+Custom renderers can be used to draw the rectangles by extending the Treemap class and overriding the draw function. 
+
+<code>
+
+	var tm:TreeMap = new TreeMap();
+	tm.setSize(stage.stageWidth, stage.stageHeight);
+
+	var dp:Array = [];
+	for(var i:int = 0; i < 5; i++){
+		var i1:MapItem = new MapItem("Item_"+i,MathUtil.randRange(1,2) );
+		dp.push(i1);
+
+	}
+
+	tm.dataProvider = dp;
+	addChild(tm);
+
+</code>
+<code>	
+	
+	class MapItem implements ITreeMapData{
+
+		private var _label:String;
+		private var _weight:Number
+		public function MapItem(label:String, weight:Number){
+			_label = label;
+			_weight = weight;
+		}
+
+		public function get weight():Number{
+			return _weight;	
+		}
+	}
+			
+</code>
