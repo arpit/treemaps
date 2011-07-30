@@ -1,6 +1,10 @@
 ***README***
 
-An open source ActionScript 3 library for generating Squarified Treemaps.
+An open source ActionScript 3 library for generating Squarified Treemaps. The library is based on the algorithm by Mark Bruls, Kees Huizing, and Jarke J. van Wijk from the Eindhoven University of Technology, Dept. of Mathematics and Computer Science,The Netherlands. The paper can be found here: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.36.6685&rep=rep1&type=pdf
+
+The library was used to build the DiggGraphr application mentioned here:
+http://infosthetics.com/archives/2009/01/digggraphr_digg_stories_in_a_treemap.html
+
 
 **Usage:**
 
